@@ -27,10 +27,14 @@ void preorder(Node* root)
 		}
 		else
 		{
-			mystack.pop();
-			if(curr_node->rightSubtree)
+			while(!mystack.empty())
 			{
-				mystack.push(curr_node->rightSubtree);
+				curr_node = mystack.pop();
+				if(curr_node->rightSubtree)
+				{
+					mystack.push(curr_node->rightSubtree);
+					break;
+				}
 			}
 		}
 	}
